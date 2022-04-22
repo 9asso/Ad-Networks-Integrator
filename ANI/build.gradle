@@ -6,7 +6,7 @@ buildscript {
         maven { url 'https://maven.google.com/' }
         // maven { url 'https://android-sdk.is.com/' }
         maven { url 'https://plugins.gradle.org/m2/'}
-        // maven { url "https://artifactory.appodeal.com/appodeal" }
+        maven { url "https://artifactory.appodeal.com/appodeal" }
         maven { url 'https://artifacts.applovin.com/android' }
     }
 }
@@ -68,7 +68,7 @@ dependencies {
     // implementation 'com.google.firebase:firebase-analytics:20.1.2'
     // implementation 'com.google.firebase:firebase-ads:20.6.0'
     // implementation 'com.google.firebase:firebase-messaging:23.0.3'
-    // implementation 'com.appodeal.ads:sdk:2.11.1'
+    implementation 'com.appodeal.ads:sdk:2.11.1.+'
     // applovin max
     implementation 'com.applovin:applovin-sdk:11.3.3'
     implementation 'com.applovin.mediation:facebook-adapter:6.10.0.1'
