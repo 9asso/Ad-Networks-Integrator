@@ -1,0 +1,13 @@
+{
+    "data" : [
+        {
+          
+            "network": "appodeal",
+            "ad_unit_admob_banner": "ca-app-pub-3940256099942544/6300978111",
+            "ad_unit_admob_interstitial": "ca-app-pub-3940256099942544/1033173712",
+            "iron_source_key": "14828ff21",
+            "appodeal_app_key": "4359d99bbb786670b0b332b66017beb7d54e1cac3c1a413c"
+          
+        }
+    ]
+}
