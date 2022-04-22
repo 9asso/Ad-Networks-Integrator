@@ -76,17 +76,17 @@ public class ANChooser {
                             case "admob":
                                 MobileAds.initialize(activity, initializationStatus -> { });
                                 break;
-                            case "is":
-                                IronSource.init(activity, jsonObject.getString("iron_source_key"), IronSource.AD_UNIT.BANNER, IronSource.AD_UNIT.INTERSTITIAL);
-                                break;
+                            // case "is":
+                            //     IronSource.init(activity, jsonObject.getString("iron_source_key"), IronSource.AD_UNIT.BANNER, IronSource.AD_UNIT.INTERSTITIAL);
+                            //     break;
                             case "max":
                                 AppLovinSdk.getInstance(activity).setMediationProvider("max");
                                 AppLovinSdk.initializeSdk(activity, config -> { });
                                 break;
-                            case "appodeal":
-                                Appodeal.initialize(activity, jsonObject.getString("appodeal_app_key"),
-                                        Appodeal.BANNER_VIEW|Appodeal.INTERSTITIAL, true);
-                                break;
+                            // case "appodeal":
+                            //     Appodeal.initialize(activity, jsonObject.getString("appodeal_app_key"),
+                            //             Appodeal.BANNER_VIEW|Appodeal.INTERSTITIAL, true);
+                            //     break;
                         }
                     }
                     catch (JSONException e){
@@ -112,15 +112,15 @@ public class ANChooser {
                             case "admob":
                                 AdmobBanner(activity, ad_frame, jsonObject.getString("ad_unit_admob_banner"));
                                 break;
-                            case "is":
-                                IronSourceBanner(activity, ad_frame);
-                                break;
+                            // case "is":
+                            //     IronSourceBanner(activity, ad_frame);
+                            //     break;
                             case "max":
                                 ApplovinMaxBanner(activity, jsonObject.getString("ad_unit_max_banner"), ad_frame);
                                 break;
-                            case "appodeal":
-                                AppodealBanner(activity, ad_frame, jsonObject.getString("appodeal_app_key"));
-                                break;
+                            // case "appodeal":
+                            //     AppodealBanner(activity, ad_frame, jsonObject.getString("appodeal_app_key"));
+                            //     break;
                         }
                     }
                     catch (JSONException e){
@@ -149,15 +149,15 @@ public class ANChooser {
                             case "admob":
                                 AdmobInterstitial(activity, jsonObject.getString("ad_unit_admob_interstitial"));
                                 break;
-                            case "is":
-                                IronSourceInterstitial();
-                                break;
+                            // case "is":
+                            //     IronSourceInterstitial();
+                            //     break;
                             case "max":
                                 ApplovinMaxInterstitial(activity, jsonObject.getString("ad_unit_max_interstitial"));
                                 break;
-                            case "appodeal":
-                                AppodealInterstitial(activity, jsonObject.getString("appodeal_app_key"));
-                                break;
+                            // case "appodeal":
+                            //     AppodealInterstitial(activity, jsonObject.getString("appodeal_app_key"));
+                            //     break;
                         }
                     }
                     catch (JSONException e){
@@ -241,158 +241,158 @@ public class ANChooser {
         interstitialAd.loadAd();
     }
 
-    private static void AppodealInterstitial(Activity activity, String appodeal_app_key_) {
-        if (Appodeal.isInitialized(Appodeal.INTERSTITIAL)){
-            Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
-                @Override
-                public void onInterstitialLoaded(boolean isPrecache) {
-                    // Called when interstitial is loaded
-                    Appodeal.show(activity, Appodeal.INTERSTITIAL);
-                    if (AdProgress.dialog!=null)
-                        AdProgress.dismissAdProgress();
-                }
-                @Override
-                public void onInterstitialFailedToLoad() {
-                    // Called when interstitial failed to load
-                    if (AdProgress.dialog!=null)
-                        AdProgress.dismissAdProgress();
-                }
-                @Override
-                public void onInterstitialShown() {
-                    // Called when interstitial is shown
-                }
-                @Override
-                public void onInterstitialShowFailed() {
-                    // Called when interstitial show failed
-                }
-                @Override
-                public void onInterstitialClicked() {
-                    // Called when interstitial is clicked
-                }
-                @Override
-                public void onInterstitialClosed() {
-                    // Called when interstitial is closed
-                    Appodeal.destroy(Appodeal.INTERSTITIAL);
-                }
-                @Override
-                public void onInterstitialExpired()  {
-                    // Called when interstitial is expired
-                }
-            });
-        }else{
-            Appodeal.initialize(activity, appodeal_app_key_, Appodeal.INTERSTITIAL, true);
-            if (AdProgress.dialog!=null)
-                AdProgress.dismissAdProgress();
-        }
-    }
+//     private static void AppodealInterstitial(Activity activity, String appodeal_app_key_) {
+//         if (Appodeal.isInitialized(Appodeal.INTERSTITIAL)){
+//             Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+//                 @Override
+//                 public void onInterstitialLoaded(boolean isPrecache) {
+//                     // Called when interstitial is loaded
+//                     Appodeal.show(activity, Appodeal.INTERSTITIAL);
+//                     if (AdProgress.dialog!=null)
+//                         AdProgress.dismissAdProgress();
+//                 }
+//                 @Override
+//                 public void onInterstitialFailedToLoad() {
+//                     // Called when interstitial failed to load
+//                     if (AdProgress.dialog!=null)
+//                         AdProgress.dismissAdProgress();
+//                 }
+//                 @Override
+//                 public void onInterstitialShown() {
+//                     // Called when interstitial is shown
+//                 }
+//                 @Override
+//                 public void onInterstitialShowFailed() {
+//                     // Called when interstitial show failed
+//                 }
+//                 @Override
+//                 public void onInterstitialClicked() {
+//                     // Called when interstitial is clicked
+//                 }
+//                 @Override
+//                 public void onInterstitialClosed() {
+//                     // Called when interstitial is closed
+//                     Appodeal.destroy(Appodeal.INTERSTITIAL);
+//                 }
+//                 @Override
+//                 public void onInterstitialExpired()  {
+//                     // Called when interstitial is expired
+//                 }
+//             });
+//         }else{
+//             Appodeal.initialize(activity, appodeal_app_key_, Appodeal.INTERSTITIAL, true);
+//             if (AdProgress.dialog!=null)
+//                 AdProgress.dismissAdProgress();
+//         }
+//     }
 
-    private static void AppodealBanner(Activity activity, LinearLayout ad_frame_, String appodeal_app_key) {
-        Appodeal.getBannerView(activity);
-        ad_frame_.addView(Appodeal.getBannerView(activity));
-//        Appodeal.setBannerViewId(R.id.appodealBannerView);
-        Appodeal.initialize(activity, appodeal_app_key, Appodeal.BANNER_VIEW, true);
-        Appodeal.setBannerCallbacks(new BannerCallbacks() {
-            @Override
-            public void onBannerLoaded(int height, boolean isPrecache) {
-                // Called when banner is loaded
-                Toast.makeText(activity, "onBannerLoaded", Toast.LENGTH_SHORT).show();
-                Appodeal.show(activity, Appodeal.BANNER_VIEW);
-            }
-            @Override
-            public void onBannerFailedToLoad() {
-                // Called when banner failed to load
-                Toast.makeText(activity, "onBannerFailedToLoad", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onBannerShown() {
-                // Called when banner is shown
-                Toast.makeText(activity, "onBannerShown", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onBannerShowFailed() {
-                // Called when banner show failed
-                Toast.makeText(activity, "onBannerShowFailed", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onBannerClicked() {
-                // Called when banner is clicked
-                Toast.makeText(activity, "onBannerClicked", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onBannerExpired() {
-                // Called when banner is expired
-                Toast.makeText(activity, "onBannerExpired", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//     private static void AppodealBanner(Activity activity, LinearLayout ad_frame_, String appodeal_app_key) {
+//         Appodeal.getBannerView(activity);
+//         ad_frame_.addView(Appodeal.getBannerView(activity));
+// //        Appodeal.setBannerViewId(R.id.appodealBannerView);
+//         Appodeal.initialize(activity, appodeal_app_key, Appodeal.BANNER_VIEW, true);
+//         Appodeal.setBannerCallbacks(new BannerCallbacks() {
+//             @Override
+//             public void onBannerLoaded(int height, boolean isPrecache) {
+//                 // Called when banner is loaded
+//                 Toast.makeText(activity, "onBannerLoaded", Toast.LENGTH_SHORT).show();
+//                 Appodeal.show(activity, Appodeal.BANNER_VIEW);
+//             }
+//             @Override
+//             public void onBannerFailedToLoad() {
+//                 // Called when banner failed to load
+//                 Toast.makeText(activity, "onBannerFailedToLoad", Toast.LENGTH_SHORT).show();
+//             }
+//             @Override
+//             public void onBannerShown() {
+//                 // Called when banner is shown
+//                 Toast.makeText(activity, "onBannerShown", Toast.LENGTH_SHORT).show();
+//             }
+//             @Override
+//             public void onBannerShowFailed() {
+//                 // Called when banner show failed
+//                 Toast.makeText(activity, "onBannerShowFailed", Toast.LENGTH_SHORT).show();
+//             }
+//             @Override
+//             public void onBannerClicked() {
+//                 // Called when banner is clicked
+//                 Toast.makeText(activity, "onBannerClicked", Toast.LENGTH_SHORT).show();
+//             }
+//             @Override
+//             public void onBannerExpired() {
+//                 // Called when banner is expired
+//                 Toast.makeText(activity, "onBannerExpired", Toast.LENGTH_SHORT).show();
+//             }
+//         });
+//     }
 
-    private static void IronSourceBanner(Activity activity, LinearLayout ad_frame){
-        IronSourceBannerLayout bannerLayout = IronSource.createBanner(activity, ISBannerSize.BANNER);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        ad_frame.addView(bannerLayout, 0, layoutParams);
-        bannerLayout.setBannerListener(new BannerListener() {
-            @Override
-            public void onBannerAdLoaded() {
-                // Called after a banner ad has been successfully loaded
-            }
-            @Override
-            public void onBannerAdLoadFailed(IronSourceError error) {
-                // Called after a banner has attempted to load an ad but failed.
-            }
-            @Override
-            public void onBannerAdClicked() {
-                // Called after a banner has been clicked.
-            }
-            @Override
-            public void onBannerAdScreenPresented() {
-                // Called when a banner is about to present a full screen content.
-            }
-            @Override
-            public void onBannerAdScreenDismissed() {
-                // Called after a full screen content has been dismissed
-            }
-            @Override
-            public void onBannerAdLeftApplication() {
-                // Called when a user would be taken out of the application context.
-            }
-        });
-        IronSource.loadBanner(bannerLayout);
-    }
+    // private static void IronSourceBanner(Activity activity, LinearLayout ad_frame){
+    //     IronSourceBannerLayout bannerLayout = IronSource.createBanner(activity, ISBannerSize.BANNER);
+    //     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+    //             LinearLayout.LayoutParams.WRAP_CONTENT);
+    //     ad_frame.addView(bannerLayout, 0, layoutParams);
+    //     bannerLayout.setBannerListener(new BannerListener() {
+    //         @Override
+    //         public void onBannerAdLoaded() {
+    //             // Called after a banner ad has been successfully loaded
+    //         }
+    //         @Override
+    //         public void onBannerAdLoadFailed(IronSourceError error) {
+    //             // Called after a banner has attempted to load an ad but failed.
+    //         }
+    //         @Override
+    //         public void onBannerAdClicked() {
+    //             // Called after a banner has been clicked.
+    //         }
+    //         @Override
+    //         public void onBannerAdScreenPresented() {
+    //             // Called when a banner is about to present a full screen content.
+    //         }
+    //         @Override
+    //         public void onBannerAdScreenDismissed() {
+    //             // Called after a full screen content has been dismissed
+    //         }
+    //         @Override
+    //         public void onBannerAdLeftApplication() {
+    //             // Called when a user would be taken out of the application context.
+    //         }
+    //     });
+    //     IronSource.loadBanner(bannerLayout);
+    // }
 
-    private static void IronSourceInterstitial(){
-        IronSource.setInterstitialListener(new InterstitialListener() {
-            @Override
-            public void onInterstitialAdReady() {
-                IronSource.showInterstitial();
-                if (AdProgress.dialog!=null)
-                    AdProgress.dismissAdProgress();
-            }
-            @Override
-            public void onInterstitialAdLoadFailed(IronSourceError error) {
-                if (AdProgress.dialog!=null)
-                    AdProgress.dismissAdProgress();
-            }
-            @Override
-            public void onInterstitialAdOpened() {
-            }
-            @Override
-            public void onInterstitialAdClosed() {
-            }
-            @Override
-            public void onInterstitialAdShowFailed(IronSourceError error) {
-                if (AdProgress.dialog!=null)
-                    AdProgress.dismissAdProgress();
-            }
-            @Override
-            public void onInterstitialAdClicked() {
-            }
-            @Override
-            public void onInterstitialAdShowSucceeded() {
-            }
-        });
-        IronSource.loadInterstitial();
-    }
+    // private static void IronSourceInterstitial(){
+    //     IronSource.setInterstitialListener(new InterstitialListener() {
+    //         @Override
+    //         public void onInterstitialAdReady() {
+    //             IronSource.showInterstitial();
+    //             if (AdProgress.dialog!=null)
+    //                 AdProgress.dismissAdProgress();
+    //         }
+    //         @Override
+    //         public void onInterstitialAdLoadFailed(IronSourceError error) {
+    //             if (AdProgress.dialog!=null)
+    //                 AdProgress.dismissAdProgress();
+    //         }
+    //         @Override
+    //         public void onInterstitialAdOpened() {
+    //         }
+    //         @Override
+    //         public void onInterstitialAdClosed() {
+    //         }
+    //         @Override
+    //         public void onInterstitialAdShowFailed(IronSourceError error) {
+    //             if (AdProgress.dialog!=null)
+    //                 AdProgress.dismissAdProgress();
+    //         }
+    //         @Override
+    //         public void onInterstitialAdClicked() {
+    //         }
+    //         @Override
+    //         public void onInterstitialAdShowSucceeded() {
+    //         }
+    //     });
+    //     IronSource.loadInterstitial();
+    // }
 
     private static void AdmobBanner(Activity activity, LinearLayout ad_frame, String ad_unit_admob_banner_){
         com.google.android.gms.ads.AdView adViewAdmob = new com.google.android.gms.ads.AdView(activity);

@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com/' }
-        maven { url 'https://android-sdk.is.com/' }
+        // maven { url 'https://android-sdk.is.com/' }
         maven { url 'https://plugins.gradle.org/m2/'}
         maven { url "https://artifactory.appodeal.com/appodeal" }
         maven { url 'https://artifacts.applovin.com/android' }
@@ -57,13 +57,13 @@ dependencies {
     // admob
     implementation 'com.google.android.gms:play-services-ads:20.6.0'
     // is
-    implementation 'com.ironsource.sdk:mediationsdk:7.2.1.1'
-    implementation 'com.google.android.gms:play-services-appset:16.0.2'
-    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'com.google.android.gms:play-services-basement:18.0.1'
-    // is adColony
-    implementation 'com.ironsource.adapters:adcolonyadapter:4.3.10'
-    implementation 'com.adcolony:sdk:4.7.1'
+    // implementation 'com.ironsource.sdk:mediationsdk:7.2.1.1'
+    // implementation 'com.google.android.gms:play-services-appset:16.0.2'
+    // implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+    // implementation 'com.google.android.gms:play-services-basement:18.0.1'
+    // // is adColony
+    // implementation 'com.ironsource.adapters:adcolonyadapter:4.3.10'
+    // implementation 'com.adcolony:sdk:4.7.1'
     // appodeal
     implementation 'com.google.firebase:firebase-analytics:20.1.2'
     implementation 'com.google.firebase:firebase-ads:20.6.0'
